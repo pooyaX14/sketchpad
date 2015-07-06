@@ -9,7 +9,6 @@ body {
     height: 100%;
     width: 600px;
     margin: auto;
-    outline: blue 3px solid;
 }
 
 .gridel {
@@ -19,4 +18,8 @@ body {
     height: 6.25%;
     outline: orange 1px solid;
     color: #ccc;
+}
+.gridel:hover {
+    background-color: blue;
+    cursor: crosshair;
 }
