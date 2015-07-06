@@ -10,5 +10,13 @@ $(document).ready(function() {
             $(".container").append($(div));
         }
     }
+
+    var clear_button = document.createElement("button");
+    $(clear_button).text("Clear");
+    $(clear_button).click(function() {
+        $("div.gridel").removeClass("painted");
+    })
+    $(clear_button).addClass("centeredLargeButton");
+    $("body").append(clear_button);
 });
 
