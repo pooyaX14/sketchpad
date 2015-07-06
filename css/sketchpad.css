@@ -1,0 +1,22 @@
+/*.container height in percentage wil not work unless
+its parent element has a specified height.
+*/
+body {
+    height: 80vh;
+}
+
+.container {
+    height: 100%;
+    width: 600px;
+    margin: auto;
+    outline: blue 3px solid;
+}
+
+.gridel {
+    display: inline-block;
+    background-color: #eee;
+    width: 6.25%;
+    height: 6.25%;
+    outline: orange 1px solid;
+    color: #ccc;
+}
