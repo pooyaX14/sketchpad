@@ -4,6 +4,7 @@ its parent element has a specified height.
 body {
     height: 80vh;
     position: relative;
+    margin: 20px;
 }
 
 .container {
@@ -27,17 +28,19 @@ body {
     cursor: crosshair;
 }
 
-.painted{
+.painted {
     background-color: purple;
 }
 
 .centeredLargeButton {
-    display: block;
-    width: 12rem;
-    margin: 30px auto;
+    display: inline-block;
+    width: 8rem;
+    //margin: 10px;
     font-size: 1.2rem;
     padding: 0.5rem;
-    position: relative;
+    position: absolute;
+    top:0;
+    left:0;
 }
 
 .centeredLargeButton:hover {

@@ -17,6 +17,7 @@ $(document).ready(function() {
         $("div.gridel").removeClass("painted");
         var num_boxes = prompt("Enter the number between 1 to 50");
         num_boxes = parseInt(num_boxes);
+        checkNumber(num_boxes);
         draw_grid(num_boxes);
     });
     $(clear_button).addClass("centeredLargeButton");
@@ -39,11 +40,25 @@ $(document).ready(function() {
                     .height(100/number + "%")
                     .addClass("gridel")
                     .on("mouseenter", function() {
-                        $(this).addClass("painted");
+                        getRandomColor();
+                        $(this).css('background-color', getRandomColor());
                     });
 
                 $(".container").append($(div));
             }
+        }
+    }
+    function getRandomColor(){
+        var r, g, b;
+        r = parseInt((Math.random()*255));
+        g = parseInt((Math.random()*255));
+        b = parseInt((Math.random()*255));
+        var css = "rgb("+r+","+g+","+b+")"
+        return css;
+    }
+    function checkNumber(number) {
+        while(isNaN(number)) {
+            return prompt("Please enter number not string");
         }
     }
 });
