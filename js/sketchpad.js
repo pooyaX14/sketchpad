@@ -7,31 +7,39 @@ $(document).ready(function() {
             $(div).on("mouseleave", function() {
                 $(this).addClass("painted");
             });
+
             $(".container").append($(div));
         }
     }
 
     var clear_button = document.createElement("button");
+    var resolution_limit = 100;
+
     $(clear_button).text("Clear");
+    $(clear_button).addClass("centeredLargeButton");
+
     $(clear_button).click(function() {
         $("div.gridel").removeClass("painted");
-        var num_boxes = prompt("Enter the number between 1 to 50");
-        num_boxes = parseInt(num_boxes);
-        checkNumber(num_boxes);
-        draw_grid(num_boxes);
+
+        do {
+            var resolution = checkInput("Sketchpad resolution: (between 1 and " + resolution_limit + ")");
+        } while (resolution > resolution_limit);
+
+        draw_grid(resolution);
     });
-    $(clear_button).addClass("centeredLargeButton");
+
     $("body").append(clear_button);
 
     function clear_old_grid() {
         $(".container").html("");
     }
 
-    // var ask_user = prompt("Enter the number between 1 to 16");
     function draw_grid(number) {
         clear_old_grid();
-        for(var i = 1; i<= number; i++) {
-            for(var j =1 ; j<=number; j++) {
+        for(var i = 1; i<= number*number; i++) {
+            // to split rows <div>
+            //for(var j =1 ; j<=number; j++)
+            {
                 var div = document.createElement("div");
                 $(div).html("&nbsp;");
 
@@ -40,15 +48,18 @@ $(document).ready(function() {
                     .height(100/number + "%")
                     .addClass("gridel")
                     .on("mouseenter", function() {
-                        getRandomColor();
-                        $(this).css('background-color', getRandomColor());
+                        $(this).css({
+                            'background-color': getRandomColor()
+                        });
                     });
 
                 $(".container").append($(div));
             }
         }
+
     }
-    function getRandomColor(){
+
+    function getRandomColor() {
         var r, g, b;
         r = parseInt((Math.random()*255));
         g = parseInt((Math.random()*255));
@@ -56,10 +67,18 @@ $(document).ready(function() {
         var css = "rgb("+r+","+g+","+b+")"
         return css;
     }
-    function checkNumber(number) {
-        while(isNaN(number)) {
-            return prompt("Please enter number not string");
-        }
+
+    function checkInput(message) {
+        do {
+            var d = prompt(message);
+            if(d === null) {
+                var number = 60;
+            } else {
+                var number = parseInt(d);
+            }
+        } while(isNaN(number))
+
+        return number;
     }
 });
 
