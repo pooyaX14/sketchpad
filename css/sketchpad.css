@@ -3,12 +3,14 @@ its parent element has a specified height.
 */
 body {
     height: 80vh;
+    position: relative;
 }
 
 .container {
-    height: 100%;
-    width: 600px;
+    height: 980px;
+    width: 980px;
     margin: auto;
+    position: relative;
 }
 
 .gridel {
@@ -24,6 +26,7 @@ body {
     background-color: blue;
     cursor: crosshair;
 }
+
 .painted{
     background-color: purple;
 }
@@ -31,9 +34,10 @@ body {
 .centeredLargeButton {
     display: block;
     width: 12rem;
-    margin: auto;
+    margin: 30px auto;
     font-size: 1.2rem;
     padding: 0.5rem;
+    position: relative;
 }
 
 .centeredLargeButton:hover {
