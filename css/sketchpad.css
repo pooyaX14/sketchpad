@@ -14,13 +14,19 @@ body {
     position: relative;
 }
 
+.hide {
+    display: none;
+}
+
 .gridel {
     display: inline-block;
     background-color: #eee;
     width: 6.25%;
     height: 6.25%;
-    outline: #ccc 1px solid;
-    color: #ccc;
+    /*outline: #ccc 1px solid;*/
+    /*color: #ccc;*/
+    /*font-size: 0.7rem;
+    line-height: 1rem;*/
 }
 
 .gridel:hover {
