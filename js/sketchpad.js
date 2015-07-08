@@ -11,7 +11,7 @@ $(document).ready(function() {
             }
         }
     var grid_lines = document.createElement("button");
-    $(grid_lines).text("grid_lines");
+    $(grid_lines).text("show lines");
     $(grid_lines).addClass("centeredLargeButton").addClass("position");
     $(grid_lines).click(function() {
             $(".gridel").toggleClass("grid_lines");
@@ -78,7 +78,7 @@ $(document).ready(function() {
         do {
             var d = prompt(message);
             if(d === null) {
-                var number = 60;
+                var number = 16;
             } else {
                 var number = parseInt(d);
             }
