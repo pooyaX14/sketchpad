@@ -1,25 +1,32 @@
 $(document).ready(function() {
-    for(var i = 1; i<=16; i++){
-        for(var j = 1; j<=16; j++){
-            var div = document.createElement("div");
-            $(div).html("&nbsp;");
-            $(div).addClass("gridel");
-            $(div).on("mouseleave", function() {
-                $(this).addClass("painted");
-            });
-
-            $(".container").append($(div));
+        for(var i = 1; i<=16; i++) {
+            for(var j = 1; j<=16; j++) {
+                var div = document.createElement("div");
+                $(div).html("&nbsp;");
+                $(div).addClass("gridel");
+                $(div).on("mouseleave", function() {
+                    $(this).addClass("painted");
+                });
+                $(".container").append($(div));
+            }
         }
-    }
-
+    var grid_lines = document.createElement("button");
+    $(grid_lines).text("grid_lines");
+    $(grid_lines).addClass("centeredLargeButton").addClass("position");
+    $(grid_lines).click(function() {
+            $(".gridel").toggleClass("grid_lines");
+            // $(".gridel").addClass("grid_lines");
+    });
+    $("body").append(grid_lines);
     var clear_button = document.createElement("button");
     var resolution_limit = 100;
 
-    $(clear_button).text("Clear");
+    $(clear_button).text("advance grid");
     $(clear_button).addClass("centeredLargeButton");
 
     $(clear_button).click(function() {
         $("div.gridel").removeClass("painted");
+        $(".gridel").toggleClass("grid_lines");
 
         do {
             var resolution = checkInput("Sketchpad resolution: (between 1 and " + resolution_limit + ")");
@@ -52,7 +59,6 @@ $(document).ready(function() {
                             'background-color': getRandomColor()
                         });
                     });
-
                 $(".container").append($(div));
             }
         }
