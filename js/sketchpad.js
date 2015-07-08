@@ -55,16 +55,16 @@ $(document).ready(function() {
         // if no parent supplied, append new button to body
         // these checks are not sufficient but will work for now
         if( typeof parent === "undefined" || parent === null) {
-            console.info("createButton() -> Info: no parent supplied" +
+            console.info("createButton() -> Info: no parent supplied. " +
                     "New button will be appended to BODY by default");
             parent = "body";
         }
 
         // to catch another possible genuine mistakes
-        if (typeof parent == "number" || typeof parent === "") {
-            console.error("createButton() -> Error: invalid parent supplied" +
+        if (typeof parent == "number" || parent ===  "") {
+            console.error("createButton() -> Error: invalid parent supplied. '" +
                     parent +
-                    " is not valid html element to append to. " +
+                    "' is not valid html element to append to. " +
                     "New button will be appended to BODY");
             parent = "body";
         }
@@ -94,14 +94,12 @@ $(document).ready(function() {
     }
 
 
-    var grid_lines = document.createElement("button");
-    $(grid_lines).text("show lines");
-    $(grid_lines).addClass("centeredLargeButton").addClass("position");
+    var grid_lines = createButton("Show grid", "centeredLargeButton position", "body");
+
     $(grid_lines).click(function() {
-            $(".gridel").toggleClass("grid_lines");
-            // $(".gridel").addClass("grid_lines");
+        $(".gridel").toggleClass("grid_lines");
     });
-    $("body").append(grid_lines);
+
     var clear_button = document.createElement("button");
     var resolution_limit = 100;
 
