@@ -2,9 +2,9 @@
 its parent element has a specified height.
 */
 body {
-    height: 80vh;
+    /*height: 80vh;*/
     position: relative;
-    margin: 20px;
+    /*margin: 20px;*/
 }
 
 .container {
@@ -14,19 +14,20 @@ body {
     position: relative;
 }
 
-.hide {
-    display: none;
-}
-
 .gridel {
     display: inline-block;
     background-color: #eee;
     width: 6.25%;
     height: 6.25%;
     /*outline: #ccc 1px solid;*/
-    /*color: #ccc;*/
+    /*color*/: #ccc;
     /*font-size: 0.7rem;
     line-height: 1rem;*/
+}
+
+.grid_lines {
+    outline: #ccc000 1.6px dotted;
+
 }
 
 .gridel:hover {
@@ -35,20 +36,30 @@ body {
 }
 
 .painted {
-    background-color: purple;
+    background-color: #336699;
 }
 
 .centeredLargeButton {
-    display: inline-block;
+    display:inline-block;
     width: 8rem;
     //margin: 10px;
-    font-size: 1.2rem;
+    font-size: 1rem;
     padding: 0.5rem;
     position: absolute;
+    color:#191919;
     top:0;
     left:0;
 }
 
+.position {
+    position: absolute;
+    top:30px;
+    left:0px;
+    margin-top: 20px;
+}
+
 .centeredLargeButton:hover {
     cursor: pointer;
+    /*background-color: purple;*/
+    color:#7f7f7f;
 }
