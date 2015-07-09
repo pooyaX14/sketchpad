@@ -89,9 +89,24 @@ utils = (function() {
 
         return button;
     }
+    function createEl(el, classes) {
+        var element = document.createElement(el);
+        if(typeof classes === 'undefined') {
+            classes = '';
+        } else if(typeof classes === 'string') {
+            classes = classes.split(' ');
+        }
+        if(Array.isArray(classes)) {
+            classes.map(function(classname){
+                $(element).addClass(classname);
+            });
+        }
+        return element;
+    }
 
     return {
         'isArray': isArray,
-        'createButton': createButton
+        'createButton': createButton,
+        'createEl':createEl
     };
 })();
