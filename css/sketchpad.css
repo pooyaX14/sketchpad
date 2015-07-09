@@ -48,11 +48,25 @@ aside {
     top:12px;
 }
 
-/* input {
+p {
+    display: block;
     position: absolute;
-    top:80px;
+    top:15px;
+    margin-top: 10px;
+    left:10px;
+    color: #117543;
+    padding: 10px;
+
+
+}
+
+
+.dimensions input {
+    position: absolute;
+    top:30px;
+    left:45px;
     color: #eed000;
-} */
+}
 .centeredLargeButton {
     /*display:inline-block;*/
     width: 12rem;
@@ -61,13 +75,13 @@ aside {
     padding: 0.5rem;
     position: absolute;
     color:#191919;
-    top:35px;
+    top:9rem;
     left:19px;
 }
 
 .position {
     position: absolute;
-    top:6rem;
+    top:12rem;
     left:19px;
     margin-top: 20px;
 }
