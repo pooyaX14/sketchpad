@@ -11,68 +11,68 @@ $(document).ready(function() {
         }
     }
 
+    function insertDimensionFormEl(str) {
+        var label = utils.createEl('label');
+        var input = utils.createEl('input');
+        var div2 = utils.createEl('div', 'aside setting_input');
+        $(label).attr('for', str).text(str + ": ").addClass('span1');
+        $(input).attr('name', str).attr('id', str).addClass('span3');
 
-    // function create_input() {
-        var div2 = document.createElement("div");
-        $(div2).addClass("dimensions");
-        $("aside").append($(div2));
-        var newInput = document.createElement("input");
-        newInput.type = "text";
-        newInput.id = "x_dimension";
-        $(".dimensions").html(newInput);
-        // var get_value = $('#x_dimension').val();
-        // return get_value;
-        // console.log(get_value);
-    // }
+        $(div2).append($(label)).append($(input));
+        $('aside').append($(div2));
 
-    var grid_lines = utils.createButton("Show/Hide Grid", "centeredLargeButton position", "body");
-    var clear_button = utils.createButton("Set dimensions:", "centeredLargeButton", "body");
+        return input;
+
+    }
+    var grid_lines = utils.createButton("Show/Hide Grid", "position", "body");
 
     $(grid_lines).click(function() {
         $(".gridel").toggleClass("grid_lines");
     });
 
-    var resolution_limit = 100;
-
-    $(clear_button).click(function() {
-        $("div.gridel").removeClass("painted");
-
-        do {
-            var resolution = checkInput("Sketchpad resolution: (between 1 and " + resolution_limit + ")");
-        } while (resolution > resolution_limit);
-        // create_input();
-        draw_grid(resolution);
-    });
-
-    $("body").append(clear_button);
-
     function clear_old_grid() {
         $(".container").html("");
     }
 
-    function draw_grid(number) {
+    function draw_grid(x_dim, y_dim) {
         clear_old_grid();
-        for(var i = 1; i<= number*number; i++) {
-            // to split rows <div>
-            //for(var j =1 ; j<=number; j++)
-            {
-                var div = document.createElement("div");
-                $(div).html("&nbsp;");
-
-                $(div)
-                    .width(100/number + "%")
-                    .height(100/number + "%")
-                    .addClass("gridel")
+        var x = parseInt($(x_dim).val());
+        var y = parseInt($(y_dim).val());
+        for(var j = 0; j<y; j++) {
+                var div_row = utils.createEl("div");
+                $(div_row).height(100/y + "%");
+            for(var i = 0; i<x;i++) {
+                var div_column = utils.createEl("div");
+                $(div_column).html("&nbsp;");
+                $(div_column)
+                    .height(100 + "%").width(100/x + "%").addClass("gridel")
                     .on("mouseenter", function() {
                         $(this).css({
                             'background-color': getRandomColor()
                         });
                     });
-                $(".container").append($(div));
+                $(div_row).append($(div_column));
             }
+            $(".container").append($(div_row));
         }
-
     }
+
+    var h4 = utils.createEl("h4");
+    $(h4).text('Grid dimensions');
+    // erase existing stuff
+    $("aside").text("");
+    // popuate new stuff
+    $("aside").append( $(h4) );
+    var x_input = insertDimensionFormEl('x');
+    var y_input = insertDimensionFormEl('y');
+
+     var create_btn = utils.createEl('button');
+     $(create_btn).text("CREATE").addClass("centeredLargeButton").click(function(){
+        draw_grid(x_input, y_input);
+     });
+
+     $("aside").append($(create_btn));
+
 
     function getRandomColor() {
         var r, g, b;
@@ -82,19 +82,5 @@ $(document).ready(function() {
         var css = "rgb("+r+","+g+","+b+")"
         return css;
     }
-
-    function checkInput(message) {
-        do {
-            var d = prompt(message);
-            if(d === null) {
-                var number = 16;
-            } else {
-                var number = parseInt(d);
-            }
-        } while(isNaN(number))
-
-        return number;
-    }
-
-});
+ });
 
