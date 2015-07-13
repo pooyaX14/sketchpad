@@ -1,0 +1,7 @@
+/* Simple 5 column grid */
+
+.span1 { width: 20%; }
+.span2 { width: 40%; }
+.span3 { width: 60%; }
+.span4 { width: 80%; }
+.span5 { width: 100%; }

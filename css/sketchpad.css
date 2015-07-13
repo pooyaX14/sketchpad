@@ -1,23 +1,42 @@
+html * {
+    box-sizing: border-box;
+}
+
 /*.container height in percentage wil not work unless
 its parent element has a specified height.
 */
 body {
-    /*height: 80vh;*/
     background-color: #DCDDD6;
     position: relative;
-    margin: 40 auto;
+    margin: 20px;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+/* apply default clearfix styles on body -- because body contains
+floated elements */
+body:after {
+    content:"";
+    display:table;
+    clear:both;
 }
 
 .container {
     height: 980px;
-    width: 980px;
     float: right;
     position: relative;
-    margin: 0px 20px auto;
+    margin: 0;
+}
+
+/* side bar created for button elements to sit*/
+aside {
+    background-color: #edf699;
+    float: left;
+    height: 980px;
     padding: 15px;
 }
 
+
+/*default gridel with the height and width of a 6.25%   */
 .gridel {
     display: inline-block;
     background-color: #eee;
@@ -25,55 +44,43 @@ body {
     height: 6.25%;
 }
 
-.grid_lines {
-    outline: #ccc000 1.6px dotted;
-
-}
-
+/*change background color to red on mouse hover*/
 .gridel:hover {
     background-color: #ff6567;
     cursor: crosshair;
 }
 
+.grid_lines {
+    outline: #ccc000 1.6px dotted;
+
+}
+/*apply the class painted on mouseleave/mouseenter*/
 .painted {
     background-color: #336699;
 }
 
-aside {
-    position: absolute;
-    background-color: #edf699;
-    width: 200px;
-    height: 955px;
-    padding: 15px;
-    top:12px;
-}
-
-/* input {
-    position: absolute;
-    top:80px;
-    color: #eed000;
-} */
+/*set properties for button that will sit on the left hand side*/
 .centeredLargeButton {
-    /*display:inline-block;*/
-    width: 12rem;
-    //margin: 10px;
+    width: 100%;
     font-size: 0.9rem;
-    padding: 0.5rem;
-    position: absolute;
     color:#191919;
-    top:35px;
-    left:19px;
-}
-
-.position {
-    position: absolute;
-    top:6rem;
-    left:19px;
-    margin-top: 20px;
+    margin: 1rem auto;
+    padding: 0.5rem;
 }
 
 .centeredLargeButton:hover {
     cursor: pointer;
-    /*background-color: purple;*/
     color:#7f7f7f;
+}
+
+.setting_input + .setting_input {
+    margin-top: 0.5rem;
+}
+
+.setting_input label {
+    width: 30%;
+}
+
+.setting_input input {
+    width: 60%;
 }
