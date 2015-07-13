@@ -22,7 +22,6 @@ body:after {
 
 .container {
     height: 980px;
-    width: 980px;
     float: right;
     position: relative;
     margin: 0;
@@ -31,7 +30,7 @@ body:after {
 /* side bar created for button elements to sit*/
 aside {
     background-color: #edf699;
-    width: calc(100% - 1040px);
+    float: left;
     height: 980px;
     padding: 15px;
 }
