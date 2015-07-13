@@ -8,8 +8,16 @@ its parent element has a specified height.
 body {
     background-color: #DCDDD6;
     position: relative;
-    margin: 40 auto;
+    margin: 20px;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+/* apply default clearfix styles on body -- because body contains
+floated elements */
+body:after {
+    content:"";
+    display:table;
+    clear:both;
 }
 
 .container {
@@ -17,9 +25,18 @@ body {
     width: 980px;
     float: right;
     position: relative;
-    margin: 0px 20px auto;
+    margin: 0;
+}
+
+/* side bar created for button elements to sit*/
+aside {
+    background-color: #edf699;
+    width: calc(100% - 1040px);
+    height: 980px;
     padding: 15px;
 }
+
+
 /*default gridel with the height and width of a 6.25%   */
 .gridel {
     display: inline-block;
@@ -41,16 +58,6 @@ body {
 /*apply the class painted on mouseleave/mouseenter*/
 .painted {
     background-color: #336699;
-}
-/* side bar created for button elements to sit*/
-
-aside {
-    position: absolute;
-    background-color: #edf699;
-    width: 200px;
-    height: 955px;
-    padding: 15px;
-    top:12px;
 }
 
 /*set properties for button that will sit on the left hand side*/
