@@ -66,3 +66,15 @@ aside {
     cursor: pointer;
     color:#7f7f7f;
 }
+
+.setting_input + .setting_input {
+    margin-top: 0.5rem;
+}
+
+.setting_input label {
+    width: 30%;
+}
+
+.setting_input input {
+    width: 60%;
+}
