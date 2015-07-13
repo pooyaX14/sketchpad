@@ -70,9 +70,7 @@ utils = (function() {
             if(typeof classname === "string") {
                 // it could be either "foo bar baz"
                 // or "foo"
-                document.new_array = classname.split(" ");
-                classname = document.new_array;
-                delete document.new_array;
+                classname = classname.split(" ");
             } else {
                 // print error
                 console.error("createButton() -> Error: classname should be " +
