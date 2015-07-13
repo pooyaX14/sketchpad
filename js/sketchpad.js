@@ -14,7 +14,7 @@ $(document).ready(function() {
     function insertDimensionFormEl(str) {
         var label = utils.createEl('label');
         var input = utils.createEl('input');
-        var div2 = utils.createEl('div', 'aside setting_input');
+        var div2 = utils.createEl('div', 'setting_input');
         $(label).attr('for', str).text(str + ": ").addClass('span1');
         $(input).attr('name', str).attr('id', str).addClass('span3');
 
@@ -22,13 +22,7 @@ $(document).ready(function() {
         $('aside').append($(div2));
 
         return input;
-
     }
-    var grid_lines = utils.createButton("Show/Hide Grid", "position", "body");
-
-    $(grid_lines).click(function() {
-        $(".gridel").toggleClass("grid_lines");
-    });
 
     function clear_old_grid() {
         $(".container").html("");
@@ -63,15 +57,21 @@ $(document).ready(function() {
     $("aside").text("");
     // popuate new stuff
     $("aside").append( $(h4) );
+
     var x_input = insertDimensionFormEl('x');
     var y_input = insertDimensionFormEl('y');
 
-     var create_btn = utils.createEl('button');
-     $(create_btn).text("CREATE").addClass("centeredLargeButton").click(function(){
+    var create_btn = utils.createButton('CREATE', 'centeredLargeButton', 'aside');
+
+     $(create_btn).click(function(){
         draw_grid(x_input, y_input);
      });
 
-     $("aside").append($(create_btn));
+    var grid_lines = utils.createButton('Show/Hide Grid', 'centeredLargeButton', 'aside');
+
+    $(grid_lines).click(function() {
+        $(".gridel").toggleClass("grid_lines");
+    });
 
 
     function getRandomColor() {
